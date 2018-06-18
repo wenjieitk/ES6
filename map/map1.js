@@ -5,3 +5,14 @@ let result = numbers.map(num => {
 });
 
 console.log(result);
+
+let cars = [
+    { model: 'buick', price : 'cheap' },
+    { model: 'camaro', price : 'expensive' },
+];
+
+let prices = cars.map((car) => {
+    return car.price;
+});
+
+console.log(prices);
