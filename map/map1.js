@@ -6,6 +6,9 @@ let result = numbers.map(num => {
 
 console.log(result);
 
+
+/*******************************************************************************************************************/
+
 let cars = [
     { model: 'buick', price : 'cheap' },
     { model: 'camaro', price : 'expensive' },
@@ -16,3 +19,17 @@ let prices = cars.map((car) => {
 });
 
 console.log(prices);
+
+
+/*******************************************************************************************************************/
+
+
+let paints = [{color:'red'},{color:'blue'},{color:'green'}];
+
+function pluck (arrays, property) {
+    return arrays.map((array) => {
+        return array[property];
+    });
+}
+
+console.log(pluck(paints,'color'));
