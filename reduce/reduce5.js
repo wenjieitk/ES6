@@ -6,10 +6,12 @@ let numbers = [1,1,2,3,4,4];
 
 function unique(arrays){
     return arrays.reduce((newArray, item) => {
-        if(!newArray.find((element) => element === item)){
-            newArray.push(item);
-        }
-        return newArray;
+    
+        return newArray.find((element) => element === item) ? newArray : newArray.concat(item)
+        // if(!newArray.find((element) => element === item)){
+        //     newArray.push(item);
+        // }
+        // return newArray;
     },[]);
 }
 
