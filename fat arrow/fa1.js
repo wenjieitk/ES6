@@ -1,3 +1,7 @@
+/**
+ * 'new' does not work with const-function
+ */
+
 // single expression 
 // single argument
 const add = a => a + 2;  // add (a) { return a+2 }
