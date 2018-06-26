@@ -1,8 +1,11 @@
+/**
+ * double the value of input array, and dont use any array helpers
+ */
+
 const numbers = [1, 2, 3];
 
 function double([number, ...rest]) {  
     if(!number){
-        console.log('return []');
         return [];
     }
     return [number*2, ...double(rest)]
