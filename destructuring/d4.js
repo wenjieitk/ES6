@@ -9,8 +9,8 @@ const points = [
     [0,40]
 ];
 
-let obj = points.map(([x,y])=>{
-    return {x,y};
+let obj = points.map(([x,y])=>{ // x = 4, y = 5
+    return {x,y}; // {x:4, y:5}
 });
 
 console.log(obj);
