@@ -7,39 +7,37 @@
 
  /**
   * Scenario
-  *                     |       walking to store
-  *                     |       still walking
-  *                     |       at the store, go in with money
-  *                { <- cash }
-  *     in the store    |       
-  *              { groceries -> }
-  *                     |       back with groceries
+  *      left           |            right
+  *                     |       walking to store with money
+  *           { <- walked into the store with cash }
+  *     in the store    |
+  *           { -> walked out the store with groceries }
+  *                     |       with groceries
+  *                     |       walking to the laundry
+  *           { <- walked into the dobi with cash }
+  *     in the dobi     |
+  *           { -> walked out the dobi with clean clothes }
+  *                     |       with clean clothes
   *                     |       headed back home
   */
 
 
+// right side
  function* shopping() {
-     // stuff on the sidewalk
+     const proccess1 = yield 'done process 1'; 
 
-     //walking down the sidewalk
-
-     //go into the store with cash
-     const stiffFromSotre = yield 'cash'; // pause here and let the existing iteration finish
+     // wlaking to laundry place
+     const proccess2 = yield 'done process 2'; 
 
      // walking back home
-     return stiffFromSotre;
+     return [proccess1,proccess2];
  }
 
-// stuff in the store
-const gen = shopping(); // doesn't affect the code
+// left side
+const gen = shopping(); // doesn't affect the shopping code
 
 console.log (
-    gen.next()// (start exe the code) leaving house
-    // walked into the store
-    // walking up and down...
-    // purchase the stuff
-); 
-
-console.log (
-    gen.next('groceries') // leaving the store with groceries
+    gen.next(), // { value: 'done process 1', done: false }
+    gen.next('done process 1, now exe process 2'), // { value: 'done process 2', done: false }
+    gen.next('done proceess 2, now returning result')  // { value: [ 'done process 1, now exe process 2','done proceess 2, now returning result' ],done: true }
 );
