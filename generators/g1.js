@@ -2,6 +2,7 @@
  * - function*
  * - yield;
  * - .next()
+ * exe the last .next() to return the result for all the executed itereations
  */
 
 
