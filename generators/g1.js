@@ -5,23 +5,6 @@
  */
 
 
- /**
-  * Scenario
-  *      left           |            right
-  *                     |       walking to store with money
-  *           { <- walked into the store with cash }
-  *     in the store    |
-  *           { -> walked out the store with groceries }
-  *                     |       with groceries
-  *                     |       walking to the laundry
-  *           { <- walked into the dobi with cash }
-  *     in the dobi     |
-  *           { -> walked out the dobi with clean clothes }
-  *                     |       with clean clothes
-  *                     |       headed back home
-  */
-
-
 // right side
  function* shopping() {
      const proccess1 = yield 'done process 1'; 
