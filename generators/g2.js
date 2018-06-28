@@ -19,8 +19,20 @@ console.log(arrColors);
 
 /*********************************************************************************/
 // to get all the member name from ourTeam
+// Symbol.iterator - to load other team 
+
+const theirTeam = {
+    lead: 'Amanda',
+    tester: 'Bill',
+    // Symbol.iterator to tell TeamIterator which to yield here
+    [Symbol.iterator]: function* () {
+        yield this.lead;
+        yield this.tester;
+    }
+};
 
 const ourTeam = {
+    theirTeam, //theirTeam (1)
     size : 3,
     location : 'mmu',
     lead : 'Jill',
@@ -32,6 +44,7 @@ function* TeamIterator(team) {
     yield team.lead;
     yield team.manager;
     yield team.engineer;
+    yield* team.theirTeam; //theirTeam (2) - yield everything in theirTeam
 }
 
 const names = [];
