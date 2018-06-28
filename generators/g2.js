@@ -37,18 +37,17 @@ const ourTeam = {
     location : 'mmu',
     lead : 'Jill',
     manager : 'Alex',
-    engineer : 'Dave'
+    engineer : 'Dave',
+    [Symbol.iterator]: function* () {
+        yield this.lead;
+        yield this.manager;
+        yield this.engineer;
+        yield* this.theirTeam;
+    }
 };
 
-function* TeamIterator(team) {
-    yield team.lead;
-    yield team.manager;
-    yield team.engineer;
-    yield* team.theirTeam; //theirTeam (2) - yield everything in theirTeam
-}
-
 const names = [];
-for (let name of TeamIterator(ourTeam)){ // execute iterator function here
+for (let name of ourTeam){ // execute iterator function here
     names.push(name); // store result here
 };
 
