@@ -15,7 +15,14 @@ promise
 getUser(1)
     .then((user) => {
         console.log(user);
-    })
+    });
+
+// const e = Promise.reject(new Error('rejecting.....'));
+
+const p1 = getUser(1);
+const p2 = getUser2(2);
+Promise.all([p1,p2])
+    .then((res) => console.log(res))
 
 function getUser(id) {
     return new Promise((resolve,reject) => {
@@ -29,4 +36,17 @@ function getUser(id) {
     })
 }
 
-const e = Promise.reject(new Error('rejecting.....'));
+function getUser2(id) {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            console.log('inside async 2....');
+            resolve({
+                id: id,
+                username: "wen jie 2"
+            })
+        }, 1500);
+    })
+}
+
+
+/*************************************************/
