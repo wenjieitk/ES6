@@ -21,8 +21,9 @@ getUser(1)
 
 const p1 = getUser(1);
 const p2 = getUser2(2);
+
 Promise.all([p1,p2])
-    .then((res) => console.log(res))
+    .then((res) => console.log(res));
 
 function getUser(id) {
     return new Promise((resolve,reject) => {
@@ -48,5 +49,8 @@ function getUser2(id) {
     })
 }
 
+// whichever one promise is fufilled, promise will resolved
+Promise.race([p1,p2])
+    .then((res) => console.log(res)); // { id: 1, username: 'wen jie' }
 
 /*************************************************/
