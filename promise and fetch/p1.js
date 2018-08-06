@@ -28,3 +28,5 @@ function getUser(id) {
         }, 1500);
     })
 }
+
+const e = Promise.reject(new Error('rejecting.....'));
