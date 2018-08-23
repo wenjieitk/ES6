@@ -14,6 +14,5 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/jieITG/javascript1#readme",
   "dependencies": {
-    "jshint": "^2.9.5"
   }
 }
